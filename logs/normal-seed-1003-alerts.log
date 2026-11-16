@@ -1,0 +1,16 @@
+=== Normal-traffic per-seed alert record ===
+Reproduction command (run from the repo root): for s in 1001 1002 1003 1004 1005; do python3 detector.py normal $s; done
+Detector: detector.py (committed). Simulator: simulator.py (committed). Majority rule: pftl-post-fix.
+
+scenario=normal seed=1001 alerts=0
+---
+scenario=normal seed=1002 alerts=0
+---
+scenario=normal seed=1003 alerts=2
+t=15 R4 WARNING: validator val-38 agreement 44% over trailing 16 flag ledgers (<50% Negative UNL band)
+t=40 R1 WARNING: support fell 6.0 pp over 10 flag ledgers (94.7% -> 88.7%)
+---
+scenario=normal seed=1004 alerts=0
+---
+scenario=normal seed=1005 alerts=0
+---
