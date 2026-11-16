@@ -45,7 +45,7 @@ source URL (with access date) or a log file and the line to look for.
 | D2 | Quorum drift: TPR 1.00, latency 0/9/12, mean 7.60 alerts/run | [FAKTA] | Same log; see detection-table.md section 4 for the latency-0 note (seed 1003 noise trigger at t=40) |
 | D3 | Churn: TPR 1.00, latency 0/0/0, mean 10.00 alerts/run | [FAKTA] | Same log |
 | D4 | Replay: TPR 1.00, latency 0/0/0, mean 20.40 alerts/run | [FAKTA] | Same log |
-| D5 | Normal traffic false-positive rate: 0.333 WARNING+ alerts per 100 flag ledgers; 1 of 5 runs with an alert; 0 CRITICAL on normal traffic | [FAKTA] | Same log; the two alerts are itemised in detection-table.md section 4 |
+| D5 | Normal traffic false-positive rate: 0.333 WARNING+ alerts per 100 flag ledgers; 1 of 5 runs with an alert; 0 CRITICAL on normal traffic | [FAKTA] | `logs/drill-run-1.log`, "--- detection results ---" (normal row: 0.40 mean alerts/run, 0.333/100 ledgers, 1/5 runs); the two alerts themselves, quoted verbatim, are in `logs/normal-seed-1003-alerts.log` (seed 1003: t=15 R4 WARNING val-38 44%, t=40 R1 WARNING 6.0 pp fall; seeds 1001/1002/1004/1005: 0 alerts) |
 | D6 | Per-rule totals over 5 runs (e.g. replay R6 CRITICAL ×100; churn R4 WARNING ×20, CRITICAL ×19; drift R2 CRITICAL ×6) | [FAKTA] | Same log, cross-checked by re-running the detector per scenario/seed (see detection-table.md section 3) |
 | D7 | Drill is deterministic: 5 separate invocations byte-identical; same-seed streams and alerts identical; canonical results SHA-256 `9478658cd6bffa6bd696b6bda2751e8453cae0d3e60fe20361605d40e4deb731` | [FAKTA] | `logs/drill-run-1.log` through `logs/drill-run-5.log` (identical SHA-256 — see SHA256SUMS); `logs/fresh-clone-rerun.log` (independent fresh-clone run, same result) |
 

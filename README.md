@@ -19,6 +19,7 @@ results, and a claim-to-evidence index, as one integrated assessment.
 | [claim-to-evidence-index.md](claim-to-evidence-index.md) | Every substantive claim mapped to its primary source or its unedited log |
 | [logs/drill-run-1.log](logs/drill-run-1.log) … [logs/drill-run-5.log](logs/drill-run-5.log) | Unedited stdout of five separate `python3 run_drill.py` invocations (byte-identical) |
 | [logs/fresh-clone-rerun.log](logs/fresh-clone-rerun.log) | Unedited stdout of the drill run from a fresh copy of this pack (see below) |
+| [logs/normal-seed-1003-alerts.log](logs/normal-seed-1003-alerts.log) | Per-seed normal-traffic alert record: the two WARNING+ false-positive alerts (seed 1003) quoted verbatim, with the other four seeds at 0 alerts — the evidence behind the 0.333/100-ledgers false-positive rate |
 | [SHA256SUMS](SHA256SUMS) | SHA-256 of every file in this pack |
 
 ## Key finding
