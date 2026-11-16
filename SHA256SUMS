@@ -9,6 +9,7 @@ ce42c5c16b074cf87d06f11798632883b494060c871c69d42f94e8725a8d4a94  ./framework.md
 16a35fb486ae297c0e2fa1e66271b17eb6045b2ac82787cd3f6f6a7eceef2cba  ./logs/drill-run-4.log
 16a35fb486ae297c0e2fa1e66271b17eb6045b2ac82787cd3f6f6a7eceef2cba  ./logs/drill-run-5.log
 16a35fb486ae297c0e2fa1e66271b17eb6045b2ac82787cd3f6f6a7eceef2cba  ./logs/fresh-clone-rerun.log
+ec7706a53f392bc8825a7fbf97263c6c12d505642cd8b2fe07733c0e596964b0  ./logs/normal-seed-1003-alerts.log
 c03214f893ba9d93caaa42338f7dd1d996cae0ad4de9a7440fd78cf5d2e95b26  ./run_drill.py
 1c1a9ad54aed7c17076de46ca26803367e83e3ff748beefa24268b7090850bbb  ./scenarios.json
 9bad6911cc64925582c8fd68c09618de9145507a20e0ef63cada919cf76153d1  ./simulator.py
