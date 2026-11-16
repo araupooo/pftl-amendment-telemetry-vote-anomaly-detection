@@ -1,0 +1,52 @@
+{
+  "description": "Scenario configurations for the amendment telemetry drill. All values are inputs to simulator.py and detector.py; the drill (run_drill.py) reads this file.",
+  "flag_ledgers": 120,
+  "inject_at": 40,
+  "majority_rule": "pftl-post-fix",
+  "metric_definitions": {
+    "alert_volume": "Mean total alerts per run (all rules, all severities), and the mean count per severity.",
+    "detection_latency_flag_ledgers": "First primary-rule alert flag ledger minus inject_at, across the runs that detected. Reported as min / median / max.",
+    "false_positive_rate": "On normal streams: WARNING- or CRITICAL-severity alerts per 100 flag ledgers across all 5 runs, and the fraction of normal runs with at least one WARNING+ alert.",
+    "true_positive_rate": "Fraction of the 5 seeded runs in which the scenario's primary rule fires at least once inside the injection window [inject_at, inject_at+40]."
+  },
+  "scenarios": {
+    "churn": {
+      "join": 4,
+      "join_at": 10,
+      "notes": "From flag ledger 40, 12 validators go offline; 4 new validators with 50% yes-propensity join 10 flag ledgers later. Online share falls to 41/53 = 77.4%, below the 80% quorum floor.",
+      "offline": 12,
+      "primary_rule": "R7"
+    },
+    "normal": {
+      "notes": "No anomaly injected. Baseline support about 90% with per-validator yes-propensity 0.85-1.00; every vote arrives in the same flag ledger (lag always 0). Used to measure the false-positive rate.",
+      "primary_rule": null
+    },
+    "quorum-drift": {
+      "drift_end_support": 0.62,
+      "drift_len": 30,
+      "notes": "From flag ledger 40, support drifts linearly from about 90% to about 62% over 30 flag ledgers, crossing the XRPL 80% threshold first and the PFTL 67% threshold later.",
+      "primary_rule": "R1"
+    },
+    "replay": {
+      "dup_rate": 0.15,
+      "notes": "From flag ledger 40 for 20 flag ledgers, 15% of validation messages are duplicated and 5% are stale (sequence number two flag ledgers old).",
+      "primary_rule": "R6",
+      "replay_len": 20,
+      "stale_rate": 0.05
+    },
+    "timing-skew": {
+      "notes": "From flag ledger 40, 8 validators' votes arrive 3 flag ledgers late.",
+      "primary_rule": "R5",
+      "skew_count": 8,
+      "skew_lag": 3
+    }
+  },
+  "seeds": [
+    1001,
+    1002,
+    1003,
+    1004,
+    1005
+  ],
+  "validators": 53
+}
